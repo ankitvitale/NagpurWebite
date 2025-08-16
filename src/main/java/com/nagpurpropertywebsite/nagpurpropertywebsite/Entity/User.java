@@ -1,8 +1,11 @@
 package com.nagpurpropertywebsite.nagpurpropertywebsite.Entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 
 import java.time.LocalDateTime;
+import java.util.Arrays;
+import java.util.List;
 import java.util.Set;
 
 @Entity
@@ -20,6 +23,10 @@ public class User {
     private String resetToken;
     private LocalDateTime tokenExpiry;
 
+    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
+    @JsonIgnore
+    private List<Property> properties;
+
     @ManyToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
     @JoinTable(name = "USER_ROLE", joinColumns = {
             @JoinColumn(name = "USER_ID", referencedColumnName = "email")
@@ -29,6 +36,7 @@ public class User {
             }
 
     )
+
     private Set<Role> Role;
 
     public User() {
@@ -108,4 +116,19 @@ public class User {
     public void setTokenExpiry(LocalDateTime tokenExpiry) {
         this.tokenExpiry = tokenExpiry;
     }
+
+    public List<Property> getProperties() {
+        return properties;
+    }
+
+    public void setProperties(List<Property> properties) {
+        this.properties = properties;
+    }
+
+    public Cache getAuthorities() {
+        return null;
+    }
+
+
+
 }

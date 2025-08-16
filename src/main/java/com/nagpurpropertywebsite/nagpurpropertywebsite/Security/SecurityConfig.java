@@ -26,14 +26,9 @@ public class SecurityConfig {
             "/swagger-ui/**", "/v3/api-docs/**", "/swagger-resources/**","/api/registerAdmin",
             "/api/auth/login",
             "/api/registerUser",
-            "/api/forgot-password",
-            "/api/reset-password",
-            "/api/AllProduct",
-            "/api/Product/{id}",
-            "/api/allBanner",
-            "/api/Banner/{id}",
-            "/api/by-category",
-            "/api/ListOfTerrarium"
+            "/api/Enquire",
+            "/api/show-Enquire",
+         "/api/Property-enquiries"
     };
 
 
@@ -67,7 +62,7 @@ public class SecurityConfig {
         CorsConfiguration configuration = new CorsConfiguration();
         configuration.setAllowedOriginPatterns(Collections.singletonList("*"));
         configuration.setAllowedOrigins(Arrays.asList("http://localhost:3001"));  // Allow specific origins or use "*"
-        configuration.setAllowedMethods(Arrays.asList("GET", "POST", "PUT", "DELETE", "OPTIONS"));  // Allowed HTTP methods
+        configuration.setAllowedMethods(Arrays.asList("GET", "POST", "PUT", "DELETE", "PATCH","OPTIONS"));  // Allowed HTTP methods
         configuration.setAllowedHeaders(Arrays.asList("Authorization", "Content-Type", "X-Requested-With", "x-auth-token", "Accept"));  // Allowed headers
         configuration.setExposedHeaders(Arrays.asList("Authorization", "x-auth-token"));  // Expose headers to the client
         configuration.setAllowCredentials(true);  // Allow credentials (cookies, authorization headers, etc.)

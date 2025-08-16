@@ -1,5 +1,6 @@
 package com.nagpurpropertywebsite.nagpurpropertywebsite.Service;
 
+import com.nagpurpropertywebsite.nagpurpropertywebsite.DTO.UserDto;
 import com.nagpurpropertywebsite.nagpurpropertywebsite.Entity.Admin;
 import com.nagpurpropertywebsite.nagpurpropertywebsite.Entity.Role;
 import com.nagpurpropertywebsite.nagpurpropertywebsite.Entity.User;
@@ -11,7 +12,9 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
+import java.util.stream.Collectors;
 
 @Service
 public class UserService {
@@ -73,4 +76,20 @@ public class UserService {
         return user;
     }
 
+    public List<UserDto> getAlluser() {
+        List<User> users = userDao.findAll();
+        return users.stream()
+                .map(this::convertToDto)
+                .collect(Collectors.toList());
+    }
+
+    private UserDto convertToDto(User user) {
+        UserDto dto = new UserDto();
+        dto.setId(user.getId());
+        dto.setName(user.getName());
+        dto.setEmail(user.getEmail());
+        dto.setPhone(user.getPhone());
+        // map other fields as needed
+        return dto;
+    }
 }
