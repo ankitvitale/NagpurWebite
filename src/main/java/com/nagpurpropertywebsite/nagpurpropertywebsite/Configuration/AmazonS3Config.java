@@ -20,8 +20,8 @@ public class AmazonS3Config {
                 .region(Region.US_EAST_1) // This is required but will be ignored by the custom endpoint
                 .endpointOverride(URI.create("https://resallingo.sfo3.digitaloceanspaces.com"))
                 .credentialsProvider(StaticCredentialsProvider.create(AwsBasicCredentials.create(
-                        "DO801HN6N6FKZKQ3L3VU",
-                        "qFRmTSCDIQ5rZF23qTs+/8U8ks4TLVgaxSGui18pNmk")))
+                        "DO801MCZGBTMVCY2C622",
+                        "vzuCwmjwURvtkzvBrbHtXy2QrHTMbEu76/QS9xiMnJ8")))
                 .serviceConfiguration(S3Configuration.builder().pathStyleAccessEnabled(true).build())
                 .build();
     }

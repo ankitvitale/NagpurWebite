@@ -71,6 +71,18 @@ public class PropertyService {
             }
         }
 
+//        for (MultipartFile file : imageFiles) {
+//            try {
+//                String imageUrl = imageService.uploadFileToSpace(file);
+//                if (imageUrl != null) {
+//                    imageUrls.add(imageUrl);
+//                }
+//            } catch (IOException e) {
+//              //  log.error("Failed to upload image: " + file.getOriginalFilename(), e);
+//            }
+//        }
+
+
         property.setImages(imageUrls);
         return propertyRepository.save(property);
     }

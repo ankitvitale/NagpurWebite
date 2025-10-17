@@ -28,7 +28,7 @@ public class PropertyController {
     @PreAuthorize("hasAnyRole('Admin', 'User')")
     public ResponseEntity<Property> createProperty(
             @RequestPart("property") PropertyDto propertyDTO,
-            @RequestPart("images") List<MultipartFile> images
+            @RequestPart(value = "images", required = false) List<MultipartFile> images
     ) {
         Property saved = propertyService.createProperty(propertyDTO, images);
         return ResponseEntity.ok(saved);

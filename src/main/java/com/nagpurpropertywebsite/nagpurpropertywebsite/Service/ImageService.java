@@ -18,6 +18,8 @@ public class ImageService {
     private final S3Client s3Client;
     private final String bucketName = "resallingo";
     private final String spaceUrl =  "https://resallingo.sfo3.digitaloceanspaces.com/resallingo/";
+
+
     @Value("${do.space.bucket-name}")
     private String spaceName;
 
