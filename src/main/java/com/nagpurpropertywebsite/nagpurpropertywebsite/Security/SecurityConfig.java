@@ -28,7 +28,8 @@ public class SecurityConfig {
             "/api/registerUser",
             "/api/Enquire",
             "/api/show-Enquire",
-         "/api/Property-enquiries"
+         "/api/Property-enquiries",
+        "/api/properties"
     };
 
 
