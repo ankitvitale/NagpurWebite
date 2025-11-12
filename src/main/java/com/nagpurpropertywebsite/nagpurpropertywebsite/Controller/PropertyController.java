@@ -48,7 +48,7 @@ public class PropertyController {
 
 
     @GetMapping("/properties")
-    @PreAuthorize("hasAnyRole('Admin', 'User')")
+    //@PreAuthorize("hasAnyRole('Admin', 'User')")
     public ResponseEntity<List<Property>> getAllProperties() {
         List<Property> properties = propertyService.getAllProperties();
         return ResponseEntity.ok(properties);
@@ -62,7 +62,7 @@ public class PropertyController {
         return ResponseEntity.ok(properties);
     }
     @GetMapping("/property/{id}")
-   // @PreAuthorize("hasAnyRole('Admin', 'User')")
+    @PreAuthorize("hasAnyRole('Admin', 'User')")
     public ResponseEntity<Optional<Property>> getPropertyById(@PathVariable Long id){
         Optional<Property> property=propertyService.getPropertyById(id);
         return ResponseEntity.ok(property);
